@@ -6,9 +6,9 @@ const FormAddFriend = ({ handleAddFriend }) => {
     name: "",
     imgUrl: "https://i.pravatar.cc/48",
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!user.name || !user.imgUrl) return;
 
     const id = crypto.randomUUID();
@@ -19,7 +19,6 @@ const FormAddFriend = ({ handleAddFriend }) => {
       id,
     };
     handleAddFriend(newFriend);
-
     setUser({ name: "", imgUrl: "https://i.pravatar.cc/48" });
   };
 
