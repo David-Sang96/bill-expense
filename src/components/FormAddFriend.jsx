@@ -11,9 +11,14 @@ const FormAddFriend = ({ handleAddFriend }) => {
     e.preventDefault();
     if (!user.name || !user.imgUrl) return;
 
+    const capitalizeName = user.name
+      .split(" ")
+      .map((item) => item.slice(0, 1).toUpperCase() + item.slice(1))
+      .join(" ");
+
     const id = crypto.randomUUID();
     const newFriend = {
-      name: user.name,
+      name: capitalizeName,
       image: `${user.imgUrl}?=${id}`,
       balance: 0,
       id,
